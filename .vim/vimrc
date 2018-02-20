@@ -1,0 +1,93 @@
+execute pathogen#infect()
+
+"automatyczne przeładowanie vimrc:
+autocmd! bufwritepost .vimrc source %
+map <C-n> :NERDTreeToggle<CR>
+
+"pusta linia pod kursorem
+"https://stackoverflow.com/questions/6765211/vim-command-to-insert-blank-line-in-normal-mode
+nnoremap <silent> [<space> :pu! _<cr>:']+1<cr>
+nnoremap <silent> ]<space> :pu _<cr>:'[-1<cr>
+
+
+set bs=2
+set mouse=a
+set number
+set tabstop=4
+set colorcolumn=110
+set cursorcolumn
+set cursorline
+
+"szybki zapis pliku
+noremap <C-Z> :update<CR>
+vnoremap <C-Z> <C-C>:update<CR>
+inoremap <C-Z> <C-O>:update<CR>
+"wylaczanie pliku i wylaczaniu wszystkich okien
+noremap <Leader>e :q!<CR>
+noremap <Leader>E :qa!<CR>
+
+"pokazywanie nie potrzebnych spacji ???
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+au InsertLeave * match ExtraWhitespace /\s\+$/
+
+"wlacza rozpoznawanie plikow
+filetype off
+filetype plugin indent on
+set smartindent
+
+set showmode
+
+set tw=79
+set nowrap
+set fo-=t
+set colorcolumn=80
+highlight ColorColumn ctermbg=233
+
+
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set shiftround
+set expandtab
+
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+
+set nobackup
+set nowritebackup
+set noswapfile
+
+set t_Co=256
+set background=dark
+let g:solarized_termcolors=256
+syntax on
+colorscheme solarized
+
+"augroup autoindent
+"au!
+"autocmd BufWritePre * :normal migg=G`i
+"augroup End
+let g:ctrlp_working_path_mode = 0 
+let g:ctrlp_match_window_bottom = 0
+let g:ctrlp_match_window = 'top,order:btt,min:1,max:10,results:10'
+
+"włączenilp_match_window_bottom = 0rowania w likach css
+let g:cssColorVimDoNotMessMyUpdatetime = 1
+ 
+"konfiguracja syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
+let g:cpp_experimental_simple_template_highlight = 1
+
