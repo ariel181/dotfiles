@@ -6,7 +6,7 @@ dir="$HOME/dotfile"
 dir_old="$HOME/old_dotfile"
 
 #files=".bashrc .vimrc .zshrc .gitconfig .tmux.conf"
-files=".tmux.conf .vimrc"
+files=".tmux.conf"
 
 for file in $dir ; do 
     echo $file
@@ -15,7 +15,6 @@ done
 
 echo "Creating folder $dir_old"
 mkdir -pv "$dir_old"
-
 
 echo "Changing to the $dir directory"
 
